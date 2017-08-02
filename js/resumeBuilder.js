@@ -75,9 +75,12 @@ var bio = {
 		"email": "helenxyu@gmail.com",
 		"phone": "604-765-xxxx",
 		"github": "helenxyu",
-		"location": "Vancouver"
-	},
-	"skills" : skills
+		"location": "Vancouver",
+		"linkedin": "helenxyu"		
+		},
+	"welcomeMessage" : "Hello, welcome to my resume page!",
+	"skills" : skills,
+	"biopic" : "http://www.gettyimages.ca/gi-resources/images/Embed/new/embed2.jpg"
 };
 
 var education = {
@@ -145,11 +148,19 @@ var projects = {
 
 var formattedContact = HTMLcontactGeneric.replace("%data%", bio.contacts);
 var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
-$("#header").append(formattedEmail);
+$("#topContacts").append(formattedEmail);
 var formattedMobile = HTMLmobile.replace("%data%", bio.contacts.phone);
-$("#header").append(formattedMobile);
+$("#topContacts").append(formattedMobile);
 var formattedGit = HTMLgithub.replace("%data%", bio.contacts.github);
-$("#header").append(formattedGit);
+$("#topContacts").append(formattedGit);
+var formattedLinkedin = HTMLlinkedin.replace("%data%", bio.contacts.linkedin);
+$("#topContacts").append(formattedLinkedin);
+
+var formattedWelcome = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
+$("#header").append(formattedWelcome);
+
+var formattedbioPic = HTMLbioPic.replace("%data%", bio.biopic);
+$("#header").append(formattedbioPic);
 
 
 if (bio.skills.length != 0) {
@@ -201,7 +212,7 @@ projects.display = function() {
 	};
 };
 
-projects.display()
+projects.display();
 
 
 function displayEducation(){
